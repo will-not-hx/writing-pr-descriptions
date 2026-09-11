@@ -1,19 +1,29 @@
 # writing-pr-descriptions
 
-A [Claude Code skill](https://code.claude.com/docs/en/skills) for writing pull request
-descriptions that a reviewer can actually use: short, specific, and free of narration about
-how the work went.
+An agent skill that writes pull request descriptions a reviewer can actually use: short,
+specific, and free of narration about how the work went. Compatible with
+[Claude Code](https://code.claude.com/docs/en/skills) and Codex.
 
 ## Install
+
+### Claude Code
 
 ```sh
 git clone https://github.com/will-not-hx/writing-pr-descriptions.git \
   ~/.claude/skills/writing-pr-descriptions
 ```
 
-Claude Code picks it up from the description in the frontmatter, and invokes it when you ask
+### Codex
+
+```sh
+mkdir -p "${CODEX_HOME:-$HOME/.codex}/skills"
+git clone https://github.com/will-not-hx/writing-pr-descriptions.git \
+  "${CODEX_HOME:-$HOME/.codex}/skills/writing-pr-descriptions"
+```
+
+Both tools discover the skill from the description in `SKILL.md` and can invoke it when you ask
 for a PR description, before `gh pr create`, or when you ask for an existing one to be
-tightened.
+tightened. In Codex, you can also invoke it explicitly with `$writing-pr-descriptions`.
 
 ## What it does
 

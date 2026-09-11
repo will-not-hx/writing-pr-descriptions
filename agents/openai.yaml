@@ -1,0 +1,4 @@
+interface:
+  display_name: "Writing PR Descriptions"
+  short_description: "Write concise, reviewer-focused PR descriptions"
+  default_prompt: "Use $writing-pr-descriptions to write or tighten this pull request description."
