@@ -44,6 +44,11 @@ has sends the reviewer to the wrong diff.
 It fills your repository's own PR template rather than replacing it — the template's reviewer
 checklist is usually what the approver signs.
 
+For a preparatory layer in a PR stack, it also requires the reason that layer exists: the
+immediate capability it enables, the current constraint, the duplication or coupling it avoids,
+and why isolating the refactor helps review. A perfect Stack table explains order, but it cannot
+explain why a no-behaviour-change PR is worth reviewing on its own.
+
 ## Why it's a recipe and not a list of rules
 
 The obvious way to write this skill is a list of things to avoid: don't narrate, don't restate
