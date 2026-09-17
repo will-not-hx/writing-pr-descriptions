@@ -23,6 +23,12 @@ For a preparatory or no-public-behaviour layer, the opening also names the concr
 
 **Any tech debt** — debt this PR adds or clears, and any decision you want overturned, as the decision and its cost.
 
+## Splitting is not a quality exemption
+
+A smaller PR is a review aid, not a reason to reduce code quality. Do not justify misplaced ownership, duplicated contracts, weaker validation or tests, or bypassed release checks as necessary for a stack. If the rationale depends on such a compromise, fix the split or combine the layers before presenting them as ready.
+
+Explain the concrete benefit of separate review without disguising a quality regression as preparation. Report genuine limitations and debt plainly; do not write "no debt" because a later PR is expected to clean them up. This applies to intermediate layers as well as the completed stack.
+
 ## Audience
 
 Written for an engineer who has not read the ticket and does not know the sub-domain. Name the thing, not its category: *"one of four outcomes — `next_question`, `screening_complete`, `requires_review`, `restart_required`"* beats *"a four-variant discriminated union"*. A term the diff does not define gets defined in six words or leaves.
