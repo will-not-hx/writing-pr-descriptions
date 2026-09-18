@@ -44,6 +44,12 @@ has sends the reviewer to the wrong diff.
 It fills your repository's own PR template rather than replacing it — the template's reviewer
 checklist is usually what the approver signs.
 
+It also requires links to the authoritative context behind the change — such as the ticket,
+current HLD, external specification, counterpart PR and tracked follow-up — placed beside the
+claim each source supports. Testing guidance covers both reproducible automated commands and
+manual steps with prerequisites, action and expected result; where manual execution genuinely
+does not apply, the description explains why and gives a concrete inspection path.
+
 For a preparatory layer in a PR stack, it also requires the reason that layer exists: the
 immediate capability it enables, the current constraint, the duplication or coupling it avoids,
 and why isolating the refactor helps review. A perfect Stack table explains order, but it cannot
