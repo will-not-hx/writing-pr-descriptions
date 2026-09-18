@@ -17,9 +17,9 @@ Fill the repository's own template — do not replace it. Its reviewer checklist
 
 For a preparatory or no-public-behaviour layer, the opening also names the concrete capability in the immediate consuming layer, the current constraint that makes this preparation necessary, the duplication, coupling or risk it avoids, and why reviewing it separately helps. *"Extracts a shared boundary for future work"* says what changed but not why the PR exists. Before PR numbers exist, name the next layer and capability; link the actual consuming PR once it is open.
 
-**What tests does this PR have** — the command and resulting counts, then one line per test file naming what it pins. A verification claim names the artefact and the number: *"byte-identical, 640,597 bytes"*, not *"verified byte-identical"*.
+**What tests does this PR have** — the automated command and resulting counts, then one line per test file naming what it pins. A verification claim names the artefact and the number: *"byte-identical, 640,597 bytes"*, not *"verified byte-identical"*.
 
-**How can this be tested** — commands that run as written, then the order to read the diff in and what to compare each file against.
+**How can this be tested** — include both automated commands that run as written and manual testing instructions. A manual check names its prerequisites or test data, the action to take, and the expected result. Keep instructions proportional to the layer: a user-facing change gets the real journey; a transport or persistence layer gets the narrow integration path that exercises it. If manual execution genuinely does not apply, say why and give the reviewer a concrete inspection path instead. Distinguish steps a reviewer can run from checks already performed; never imply an unperformed live test passed.
 
 **Any tech debt** — debt this PR adds or clears, and any decision you want overturned, as the decision and its cost.
 
@@ -41,6 +41,8 @@ The description describes the PR as it stands now. Re-read the base branch, vers
 
 Each link does a job the sentence names: what this unblocks, the convention it follows, where the follow-up was flagged, its counterpart in another repo.
 
+Include every relevant source of context a reviewer needs to verify the change: the ticket, current HLD or architecture decision, external specification or vendor documentation, counterpart implementation, and any tracked follow-up. Put the link at the claim it supports and name the relevant section when the source is long. Do not leave an authoritative source out merely because its conclusion is repeated in the ticket, and do not add an unlabelled link dump.
+
 In a stack, a preparatory layer links its immediate consumer and states the dependency, such as *"unblocks #214's DELETE client without duplicating the POST client's resilience policy."* The Stack table gives position; it does not supply this rationale.
 
 ## Routing
@@ -59,4 +61,6 @@ Draft it, then keep the sentences that would survive the author's own edit. On a
 | "Stacked on #101, rebased onto the old base after #112" | "Split out from #120 so that PR contains only the new endpoint." |
 | "This PR was built against the target contract from its own open PR" | Delete — say what the contract is now. |
 | "Extracts a method-neutral boundary in preparation for later work" | "The next layer adds a DELETE client, but transport policy lives inside the POST helper; this separates it so DELETE does not duplicate resilience and telemetry behaviour." |
+| A ticket link with no design source | Link the ticket and the current HLD or specification at the behaviour each one establishes. |
+| Automated commands as the entire testing section | Add manual prerequisites, action and expected result, or explain why manual execution does not apply and give a concrete inspection path. |
 | "**⚠️ Please read before merging**" on a resolved issue | Delete the block. |
